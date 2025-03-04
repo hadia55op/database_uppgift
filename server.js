@@ -27,16 +27,16 @@ app.get('/products/stats', (req, res) => {
 //############# 3 ###############
 
 app.get('/products/search', (req, res) => {
-const searchTerm = req.query.name || '';
-const descriptionSearchTerm = req.query.description || '';
+const searchField= req.query.name || '';
+const descriptionSearchField = req.query.description || '';
  try {
-        const products = getProductByName(searchTerm,descriptionSearchTerm);// utökad sök funktion flera fält samtidigt
+        const products = getProductByName(searchField,descriptionSearchField);// utökad sök funktion flera fält samtidigt
                  
             if (products.length > 0) {
                 res.json(products);
                  } else {
                      
-                     res.status(404).json({ message: 'No products found matching the searchterm' });
+                     res.status(404).json({ message: 'No products found matching the searchField' });
                  }
              } catch (error) {
                  console.error('Error fetching products:', error);

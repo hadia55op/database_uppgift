@@ -46,10 +46,10 @@ GROUP BY c.category_id;
     }
       
 //############# 3 ###############
-function getProductByName(searchTerm) {
+function getProductByName(searchField) {
     try {
         const stmt = db.prepare('SELECT * FROM products WHERE LOWER(name) LIKE LOWER(?)  OR LOWER(description) LIKE LOWER(?)');
-        const products = stmt.all(`${searchTerm}`, `${searchTerm}`);
+        const products = stmt.all(`${searchField}`, `${searchField}`);
         return products;
     } catch (error) {
 
